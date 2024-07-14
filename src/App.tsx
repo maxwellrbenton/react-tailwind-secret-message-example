@@ -14,7 +14,7 @@ function App() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-16"
+            className="lock--locked size-16"
           >
             <path
               strokeLinecap="round"
@@ -29,7 +29,7 @@ function App() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-16"
+            className="lock--unlocked size-16"
           >
             <path
               strokeLinecap="round"
@@ -47,7 +47,7 @@ function App() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-16"
+            className="key size-12"
             onClick={() => setLocked(false)}
           >
             <path
@@ -69,12 +69,32 @@ function App() {
           viewBox="0 0 24 24"
           strokeWidth={2.5}
           stroke="green"
-          className="size-12"
+          className="arrow--right size-12"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+          />
+        </svg>
+      </div>
+      <div
+        className={`${
+          locked ? "block sm:block" : "hidden"
+        } md:hidden cursor-pointer hover:bg-blue-100 hover:rounded-full absolute mt-32`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="gray"
+          className="x-mark size-16"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18 18 6M6 6l12 12"
           />
         </svg>
       </div>
