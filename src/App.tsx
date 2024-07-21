@@ -1,105 +1,14 @@
-import { useState } from "react";
-import "./App.css";
-
-function App() {
-  const [locked, setLocked] = useState(true);
-
+function UnlockableContent() {
   return (
-    <div className="flex flex-col w-screen h-screen justify-center items-center">
-      <div>
-        {locked ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="lock--locked size-16"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="lock--unlocked size-16"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-            />
-          </svg>
-        )}
+    <>
+      <div id="hiddenUnlessSmall" className="md:hidden">
+        <span>This content is displayed on screens less than 768px wide </span>
       </div>
-      <div className="absolute mt-32 hidden md:block lg:hidden">
-        {locked && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="key size-12"
-            onClick={() => setLocked(false)}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
-            />
-          </svg>
-        )}
+      <div id="hiddenUnlessMedium" className="hidden md:block">
+        <span>This content is displayed on screens bigger than 768px wide</span>
       </div>
-      <div
-        className={`${
-          !locked ? "block sm:block" : "hidden"
-        } md:hidden cursor-pointer hover:bg-blue-100 hover:rounded-full absolute mt-32`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="green"
-          className="arrow--right size-12"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-          />
-        </svg>
-      </div>
-      <div
-        className={`${
-          locked ? "block sm:block" : "hidden"
-        } md:hidden cursor-pointer hover:bg-blue-100 hover:rounded-full absolute mt-32`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="gray"
-          className="x-mark size-16"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18 18 6M6 6l12 12"
-          />
-        </svg>
-      </div>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default UnlockableContent;
